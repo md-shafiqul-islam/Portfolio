@@ -1,3 +1,4 @@
+import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
 const RootLayout = () => {
@@ -7,7 +8,9 @@ const RootLayout = () => {
         <Navbar />
       </header>
 
-      <main></main>
+      <main>
+        <Hero />
+      </main>
 
       <footer></footer>
     </div>
