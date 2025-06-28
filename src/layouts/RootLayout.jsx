@@ -1,3 +1,4 @@
+import AboutMe from "../components/AboutMe";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 
@@ -10,6 +11,7 @@ const RootLayout = () => {
 
       <main>
         <Hero />
+        <AboutMe />
       </main>
 
       <footer></footer>

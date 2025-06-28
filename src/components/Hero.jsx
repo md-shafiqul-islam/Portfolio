@@ -38,14 +38,14 @@ const Hero = () => {
           viewport={{ once: true }}
         >
           <Motion.h1
-            className="text-4xl md:text-5xl font-extrabold text-secondary"
+            className="text-4xl lg:text-5xl font-extrabold text-secondary"
             variants={textItem}
           >
             Md. Shafiqul Islam
           </Motion.h1>
 
           <Motion.h2
-            className="text-xl md:text-2xl font-semibold text-secondary"
+            className="text-xl lg:text-2xl font-semibold text-secondary"
             variants={textItem}
           >
             <Typewriter
@@ -127,7 +127,7 @@ const Hero = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <img
-            className="w-52 h-52 md:w-72 md:h-72 rounded-full object-cover shadow-lg border-4 border-secondary hover:shadow-[0_0_25px_#d6a553] transition-shadow duration-500"
+            className="w-52 h-52 lg:w-72 lg:h-72 rounded-full object-cover shadow-lg border-4 border-secondary hover:shadow-[0_0_25px_#d6a553] transition-shadow duration-500"
             src={heroImage}
             alt="Md. Shafiqul Islam Profile Picture"
             aria-label="Visit GitHub Profile"
