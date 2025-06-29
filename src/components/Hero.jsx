@@ -2,6 +2,7 @@ import Typewriter from "typewriter-effect";
 import { motion as Motion } from "framer-motion";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-scroll";
+import { HiArrowDownCircle } from "react-icons/hi2";
 import heroImage from "../assets/profile/pic-1.PNG";
 
 const textStagger = {
@@ -135,10 +136,12 @@ const Hero = () => {
         </Motion.div>
       </div>
 
-      {/* Scroll Indicator (Optional but Stylish) */}
+      {/* Scroll Indicator */}
       <Link to="about" smooth={true} duration={500}>
         <div className="mt-8 text-secondary animate-bounce cursor-pointer">
-          <span className="text-xl">↓</span>
+          <span className="text-4xl">
+            <HiArrowDownCircle />
+          </span>
         </div>
       </Link>
     </Motion.section>

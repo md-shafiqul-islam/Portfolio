@@ -1,29 +1,42 @@
+import { useScroll, motion as Motion } from "framer-motion";
 import AboutMe from "../components/AboutMe";
 import Contact from "../components/Contact";
 import Education from "../components/Education";
+import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
 const RootLayout = () => {
+  const { scrollYProgress } = useScroll();
+
   return (
-    <div>
-      <header className="sticky top-0 z-50">
-        <Navbar />
-      </header>
+    <>
+      <Motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-accent z-[9999]"
+        style={{ scaleX: scrollYProgress }}
+      />
 
-      <main>
-        <Hero />
-        <AboutMe />
-        <Skills />
-        <Education />
-        <Projects />
-        <Contact />
-      </main>
+      <div>
+        <header className="sticky top-0 z-50">
+          <Navbar />
+        </header>
 
-      <footer></footer>
-    </div>
+        <main>
+          <Hero />
+          <AboutMe />
+          <Skills />
+          <Education />
+          <Projects />
+          <Contact />
+        </main>
+
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </>
   );
 };
 
