@@ -11,7 +11,7 @@ const AboutMe = () => {
       viewport={{ once: true }}
     >
       <Motion.div
-        className="max-w-6xl mx-auto"
+        className="max-w-7xl mx-auto"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}

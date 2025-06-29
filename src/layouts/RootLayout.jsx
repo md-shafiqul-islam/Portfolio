@@ -1,6 +1,7 @@
 import AboutMe from "../components/AboutMe";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Skills from "../components/Skills";
 
 const RootLayout = () => {
   return (
@@ -12,6 +13,7 @@ const RootLayout = () => {
       <main>
         <Hero />
         <AboutMe />
+        <Skills />
       </main>
 
       <footer></footer>
