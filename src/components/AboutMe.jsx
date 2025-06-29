@@ -4,14 +4,14 @@ const AboutMe = () => {
   return (
     <Motion.section
       id="about"
-      className="bg-base-200 py-20 px-6 lg:px-10"
+      className="bg-base-300 py-20 px-6 lg:px-10"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.25, 0.8, 0.25, 1] }}
       viewport={{ once: true }}
     >
       <Motion.div
-        className="max-w-7xl mx-auto"
+        className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}

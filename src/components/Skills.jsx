@@ -95,7 +95,7 @@ const Skills = () => {
       viewport={{ once: true }}
     >
       <Motion.div
-        className="max-w-7xl mx-auto"
+        className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
@@ -125,7 +125,7 @@ const Skills = () => {
                   key={skill.name}
                   custom={i}
                   variants={skillVariants}
-                  className="group relative overflow-hidden p-6 rounded-2xl bg-white/60 dark:bg-primary/60 backdrop-blur-lg border border-base-300 ring-1 ring-inset ring-base-100 hover:scale-[1.02] hover:shadow-2xl transition duration-300 ease-out flex items-center gap-5"
+                  className="group relative overflow-hidden p-6 rounded-3xl bg-base-200 backdrop-blur-lg border-2 border-secondary shadow-lg shadow-secondary/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_25px_#d6a553cc] ring-1 ring-inset ring-base-100 flex items-center gap-5"
                 >
                   <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
                     {skill.icon}
@@ -152,7 +152,7 @@ const Skills = () => {
                   key={skill.name}
                   custom={i + skills.Proficient.length}
                   variants={skillVariants}
-                  className="group relative overflow-hidden p-6 rounded-2xl bg-white/60 dark:bg-primary/60 backdrop-blur-lg border border-base-300 ring-1 ring-inset ring-base-100 hover:scale-[1.02] hover:shadow-2xl transition duration-300 ease-out flex items-center gap-5"
+                  className="group relative overflow-hidden p-6 rounded-3xl bg-base-200 backdrop-blur-lg border-2 border-secondary shadow-lg shadow-secondary/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_25px_#d6a553cc] ring-1 ring-inset ring-base-100 flex items-center gap-5"
                 >
                   <div className="text-4xl group-hover:scale-110 transition-transform duration-300">
                     {skill.icon}
