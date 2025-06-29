@@ -34,59 +34,51 @@ const educationData = [
   },
 ];
 
-const cardVariant = {
-  hidden: (i) => {
-    if (i === 0) return { opacity: 0, x: -80, y: 20 };
-    if (i === 1) return { opacity: 0, scale: 0.6, y: 0 };
-    if (i === 2) return { opacity: 0, x: 80, y: 20 };
-    return { opacity: 0, y: 20 };
-  },
-  visible: (i) => ({
+// Animation Variants
+const container = {
+  hidden: { opacity: 0 },
+  show: {
     opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { delay: i * 0.25, duration: 0.6, ease: [0.25, 0.8, 0.25, 1] },
-  }),
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const card = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
 };
 
 const Education = () => {
   return (
     <Motion.section
       id="education"
-      className="bg-base-300 py-20 px-6 lg:px-10"
+      className="bg-base-300 py-20 px-6 lg:px-10 overflow-hidden"
       initial="hidden"
-      whileInView="visible"
+      whileInView="show"
       viewport={{ once: true }}
+      variants={container}
     >
-      <Motion.div
-        className="max-w-6xl mx-auto"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: [0.25, 0.8, 0.25, 1] }}
-        viewport={{ once: true }}
-      >
+      <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="mb-12 space-y-3 text-center">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent font-serif">
             Education
           </h2>
+
           <p className="text-primary text-base sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto tracking-wide font-sans">
             A strong academic foundation, built with passion and precision.
           </p>
         </div>
 
-        {/* Cards Container - vertical stack */}
-        <div className="flex flex-col gap-10">
+        {/* Cards */}
+        <Motion.div variants={container} className="flex flex-col gap-10">
           {educationData.map((edu, i) => (
             <Motion.div
               key={i}
-              custom={i}
-              variants={cardVariant}
+              variants={card}
               className="w-full bg-base-200 rounded-3xl p-8 border-2 border-secondary shadow-lg shadow-secondary/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_25px_#d6a553cc] cursor-default flex flex-col justify-between"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
             >
               <div>
                 <div className="flex items-center gap-3 text-secondary mb-6">
@@ -122,8 +114,8 @@ const Education = () => {
               </div>
             </Motion.div>
           ))}
-        </div>
-      </Motion.div>
+        </Motion.div>
+      </div>
     </Motion.section>
   );
 };

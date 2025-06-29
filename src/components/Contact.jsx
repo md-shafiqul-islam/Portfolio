@@ -4,6 +4,11 @@ import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const Contact = () => {
   const formRef = useRef();
 
@@ -56,8 +61,15 @@ const Contact = () => {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-center">
-        {/* Contact Info */}
-        <div className="space-y-6 text-primary text-base sm:text-lg font-sans">
+        {/* Contact Info Animation */}
+        <Motion.div
+          className="space-y-6 text-primary text-base sm:text-lg font-sans"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <p className="flex items-center gap-3">
             <FaEnvelope className="text-accent text-xl" />
             <span className="font-semibold">shafiqul.islam3558@gmail.com</span>
@@ -70,10 +82,19 @@ const Contact = () => {
             <FaMapMarkerAlt className="text-accent text-xl" />
             <span className="font-semibold">Mymensingh, Bangladesh</span>
           </p>
-        </div>
+        </Motion.div>
 
-        {/* Contact Form */}
-        <form ref={formRef} onSubmit={sendEmail} className="space-y-5">
+        {/* Contact Form Animation */}
+        <Motion.form
+          ref={formRef}
+          onSubmit={sendEmail}
+          className="space-y-5"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <input
             type="text"
             name="user_name"
@@ -101,7 +122,7 @@ const Contact = () => {
           >
             Send Message
           </button>
-        </form>
+        </Motion.form>
       </div>
     </Motion.section>
   );

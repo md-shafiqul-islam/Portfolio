@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { HiArrowUpCircle } from "react-icons/hi2";
+import { motion as Motion } from "framer-motion";
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -32,14 +33,18 @@ const Footer = () => {
       </div>
 
       {showScrollTop && (
-        <button
+        <Motion.button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          className="fixed bottom-6 right-6 text-accent hover:text-accent/80 text-4xl cursor-pointer transition-opacity duration-500 opacity-100 z-50"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.3 }}
+          className="fixed bottom-6 right-6 text-accent hover:text-accent/80 text-4xl cursor-pointer transition-opacity duration-500 opacity-100 z-50 bg-white/10 backdrop-blur rounded-full p-1 shadow-md"
           title="Back to top"
         >
           <HiArrowUpCircle />
-        </button>
+        </Motion.button>
       )}
     </footer>
   );

@@ -35,7 +35,7 @@ const Navbar = () => {
             className="cursor-pointer"
           >
             <img
-              className="w-[70px] h-[70px] hidden lg:inline-block"
+              className="w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] inline-block"
               src={logo}
               alt="Logo"
             />
@@ -53,7 +53,7 @@ const Navbar = () => {
                 offset={-70}
                 spy={true}
                 activeClass="text-accent"
-                className="cursor-pointer px-3 py-2 text-xl font-semibold text-gray-300 hover:text-secondary"
+                className="cursor-pointer px-3 py-2 text-xl font-semibold text-gray-100 hover:text-secondary"
               >
                 {link.name}
               </Link>
@@ -86,12 +86,12 @@ const Navbar = () => {
           ></Motion.div>
 
           <Motion.div
-            className="lg:hidden fixed top-0 left-0 w-full z-50"
+            className="lg:hidden fixed top-0 left-0 z-50"
             onClick={() => setMenuOpen(false)}
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
           >
             <div className="mt-14 mx-4 rounded-md bg-base-100 p-4 space-y-3 shadow-md">
               {navLinks.map((link) => (

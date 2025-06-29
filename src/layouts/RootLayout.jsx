@@ -7,9 +7,16 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
+import { useEffect } from "react";
+import Aos from "aos";
 
 const RootLayout = () => {
   const { scrollYProgress } = useScroll();
+
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: true });
+    Aos.refresh();
+  }, []);
 
   return (
     <>
