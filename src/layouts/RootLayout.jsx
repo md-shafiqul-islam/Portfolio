@@ -2,6 +2,7 @@ import AboutMe from "../components/AboutMe";
 import Education from "../components/Education";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
 const RootLayout = () => {
@@ -16,6 +17,7 @@ const RootLayout = () => {
         <AboutMe />
         <Skills />
         <Education />
+        <Projects />
       </main>
 
       <footer></footer>

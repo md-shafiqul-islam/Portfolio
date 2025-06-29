@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-primary px-4 py-3 shadow-2xl">
+    <nav className="bg-primary px-4 py-1 shadow-2xl">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo + Mobile Menu Button */}
         <div className="flex items-center gap-4">
@@ -35,7 +35,7 @@ const Navbar = () => {
             className="cursor-pointer"
           >
             <img
-              className="w-24 h-24 hidden lg:inline-block"
+              className="w-[70px] h-[70px] hidden lg:inline-block"
               src={logo}
               alt="Logo"
             />

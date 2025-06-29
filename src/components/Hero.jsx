@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect";
 import { motion as Motion } from "framer-motion";
 import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-scroll";
-import heroImage from "../assets/Profile/pic-1.PNG";
+import heroImage from "../assets/profile/pic-1.PNG";
 
 const textStagger = {
   hidden: {},

@@ -36,10 +36,10 @@ const educationData = [
 
 const cardVariant = {
   hidden: (i) => {
-    if (i === 0) return { opacity: 0, x: -100, y: 20 }; // from left
-    if (i === 1) return { opacity: 0, scale: 0.8, y: 40 }; // zoom in up
-    if (i === 2) return { opacity: 0, x: 100, y: 20 }; // from right
-    return { opacity: 0, y: 20 }; // fallback
+    if (i === 0) return { opacity: 0, x: -80, y: 20 };
+    if (i === 1) return { opacity: 0, scale: 0.6, y: 0 };
+    if (i === 2) return { opacity: 0, x: 80, y: 20 };
+    return { opacity: 0, y: 20 };
   },
   visible: (i) => ({
     opacity: 1,
