@@ -1,4 +1,5 @@
 import AboutMe from "../components/AboutMe";
+import Contact from "../components/Contact";
 import Education from "../components/Education";
 import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
@@ -18,6 +19,7 @@ const RootLayout = () => {
         <Skills />
         <Education />
         <Projects />
+        <Contact />
       </main>
 
       <footer></footer>
