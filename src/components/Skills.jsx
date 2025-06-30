@@ -1,7 +1,3 @@
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 import {
   FaHtml5,
   FaCss3Alt,
@@ -18,6 +14,8 @@ import {
   SiFirebase,
   SiFigma,
 } from "react-icons/si";
+
+import { Zoom } from "react-awesome-reveal";
 
 const skills = {
   Proficient: [
@@ -66,7 +64,7 @@ const skills = {
   ],
 };
 
-// Reusable star rating component
+// Star component
 const StarRating = ({ count }) => (
   <div className="flex space-x-1">
     {[...Array(5)].map((_, i) =>
@@ -84,10 +82,6 @@ const StarRating = ({ count }) => (
 );
 
 const Skills = () => {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
   return (
     <section id="skills" className="bg-base-200 py-20 px-6 lg:px-10">
       <div className="max-w-6xl mx-auto">
@@ -111,16 +105,16 @@ const Skills = () => {
             </h3>
 
             <div className="space-y-5">
-              {skills.Proficient.map((skill, i) => {
-                return (
-                  <div
-                    key={skill.name}
-                    data-aos="zoom-in"
-                    data-aos-delay={i * 100}
-                    className="group relative overflow-hidden p-6 rounded-3xl bg-base-200 backdrop-blur-lg border-2 border-secondary shadow-lg shadow-secondary/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_25px_#d6a553cc] ring-1 ring-inset ring-base-100 flex items-center gap-5"
-                  >
+              {skills.Proficient.map((skill, i) => (
+                <Zoom
+                  key={skill.name}
+                  delay={i * 50}
+                  duration={600}
+                  triggerOnce
+                >
+                  <div className="group relative p-6 rounded-3xl bg-base-200 border-2 border-secondary shadow-lg shadow-secondary/30 ring-1 ring-inset ring-base-100 flex items-center gap-5 transition duration-500 ease-in-out hover:scale-[1.03]">
                     <div
-                      className="text-4xl group-hover:scale-110 transition-transform duration-300 tooltip tooltip-right"
+                      className="text-4xl transition-transform duration-300 tooltip tooltip-right"
                       data-tip={skill.name}
                     >
                       {skill.icon}
@@ -132,8 +126,8 @@ const Skills = () => {
                       <StarRating count={skill.stars} />
                     </div>
                   </div>
-                );
-              })}
+                </Zoom>
+              ))}
             </div>
           </div>
 
@@ -142,17 +136,18 @@ const Skills = () => {
             <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
               🛠 <span>Familiar With</span>
             </h3>
+
             <div className="space-y-5">
-              {skills.Familiar.map((skill, i) => {
-                return (
-                  <div
-                    key={skill.name}
-                    data-aos="zoom-in"
-                    data-aos-delay={i * 100}
-                    className="group relative overflow-hidden p-6 rounded-3xl bg-base-200 backdrop-blur-lg border-2 border-secondary shadow-lg shadow-secondary/30 transition-transform duration-300 ease-in-out hover:scale-[1.03] hover:shadow-[0_0_25px_#d6a553cc] ring-1 ring-inset ring-base-100 flex items-center gap-5"
-                  >
+              {skills.Familiar.map((skill, i) => (
+                <Zoom
+                  key={skill.name}
+                  delay={i * 50}
+                  duration={600}
+                  triggerOnce
+                >
+                  <div className="group relative p-6 rounded-3xl bg-base-200 border-2 border-secondary shadow-lg shadow-secondary/30 ring-1 ring-inset ring-base-100 flex items-center gap-5 transition duration-500 ease-in-out hover:scale-[1.03]">
                     <div
-                      className="text-4xl group-hover:scale-110 transition-transform duration-300 tooltip tooltip-right"
+                      className="text-4xl transition-transform duration-300 tooltip tooltip-right"
                       data-tip={skill.name}
                     >
                       {skill.icon}
@@ -164,8 +159,8 @@ const Skills = () => {
                       <StarRating count={skill.stars} />
                     </div>
                   </div>
-                );
-              })}
+                </Zoom>
+              ))}
             </div>
           </div>
         </div>

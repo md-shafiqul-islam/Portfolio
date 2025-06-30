@@ -91,7 +91,7 @@ const Projects = () => {
       <div className="flex flex-col space-y-16">
         {projects.map((project) => (
           <Zoom triggerOnce direction="up" key={project.name}>
-            <div className="flex flex-col lg:flex-row bg-base-100 rounded-3xl shadow-lg border-2 border-secondary overflow-hidden">
+            <div className="flex flex-col lg:flex-row bg-base-100 rounded-3xl shadow-lg border-2 border-secondary overflow-hidden transition-transform duration-300 ease-in-out hover:scale-[1.03]">
               {/* Image Carousel */}
               <div className="relative lg:w-1/2 bg-base-200 rounded-t-3xl lg:rounded-tr-none lg:rounded-l-3xl overflow-hidden">
                 <Swiper
