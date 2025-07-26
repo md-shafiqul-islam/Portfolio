@@ -1,14 +1,10 @@
 import Typewriter from "typewriter-effect";
 import { motion as Motion } from "framer-motion";
-import {
-  FaFacebookF,
-  FaGithub,
-  FaLinkedinIn,
-  FaDownload,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaDownload } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { HiArrowDownCircle } from "react-icons/hi2";
 import heroImage from "../assets/profile/pic-1.PNG";
+import { FaXTwitter } from "react-icons/fa6";
 
 const textStagger = {
   hidden: {},
@@ -57,7 +53,7 @@ const Hero = () => {
           >
             <Typewriter
               options={{
-                strings: ["MERN Stack Developer", "JavaScript Enthusiast"],
+                strings: ["Full Stack Web Developer (MERN Stack)"],
                 autoStart: true,
                 loop: true,
                 delay: 70,
@@ -68,8 +64,8 @@ const Hero = () => {
           </Motion.h2>
 
           <Motion.p className="text-lg text-secondary" variants={textItem}>
-            I build responsive, fast, and secure web applications using the MERN
-            stack. Passionate about clean UI and robust backend logic.
+            I create fast, secure MERN stack apps with clean UI and smart
+            backend logic — no fluff, just results.
           </Motion.p>
 
           {/* Social Links */}
@@ -78,7 +74,7 @@ const Hero = () => {
             variants={textItem}
           >
             <Motion.a
-              href="https://github.com/sniekdho"
+              href="https://github.com/md-shafiqul-islam"
               target="_blank"
               className="btn btn-secondary rounded-full text-white text-lg"
               whileHover={{ scale: 1.1 }}
@@ -87,7 +83,7 @@ const Hero = () => {
               <FaGithub />
             </Motion.a>
             <Motion.a
-              href="https://www.linkedin.com/in/md-shafiqul-islam-754a19183/"
+              href="https://www.linkedin.com/in/mdshafiqulislam1/"
               target="_blank"
               className="btn btn-secondary rounded-full text-white text-lg"
               whileHover={{ scale: 1.1 }}
@@ -96,19 +92,19 @@ const Hero = () => {
               <FaLinkedinIn />
             </Motion.a>
             <Motion.a
-              href="https://www.facebook.com/sniekdho.shafiq/"
+              href="https://x.com/shafiqul3558"
               target="_blank"
               className="btn btn-secondary rounded-full text-white text-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaFacebookF />
+              <FaXTwitter />
             </Motion.a>
           </Motion.div>
 
           {/* Resume Button */}
           <Motion.a
-            href="/resume.pdf"
+            href="/Md_Shafiqul_Islam_Resume.pdf"
             download="Md-Shafiqul-Islam-Resume"
             className="btn btn-accent text-white rounded-md px-8 hover:shadow-xl mt-4 inline-flex items-center gap-2"
             initial={{ scale: 0.9, opacity: 0 }}

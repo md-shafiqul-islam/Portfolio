@@ -11,13 +11,14 @@ const Navbar = () => {
     { name: "Home", to: "hero" },
     { name: "About", to: "about" },
     { name: "Skills", to: "skills" },
-    { name: "Education", to: "education" },
     { name: "Projects", to: "projects" },
+    { name: "Education", to: "education" },
+    { name: "Courses", to: "courses" },
     { name: "Contact", to: "contact" },
   ];
 
   return (
-    <nav className="bg-primary px-4 py-1 shadow-2xl">
+    <nav className="bg-gradient-to-r from-primary via-secondary to-accent px-4 py-1 shadow-2xl">
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         {/* Logo + Mobile Menu Button */}
         <div className="flex items-center gap-4">
@@ -52,8 +53,8 @@ const Navbar = () => {
                 duration={500}
                 offset={-70}
                 spy={true}
-                activeClass="text-accent"
-                className="cursor-pointer px-3 py-2 text-xl font-semibold text-gray-100 hover:text-secondary"
+                activeClass="text-base-100"
+                className="cursor-pointer px-3 py-2 text-xl font-semibold hover:text-base-100"
               >
                 {link.name}
               </Link>
@@ -64,10 +65,10 @@ const Navbar = () => {
         {/* Resume Button */}
         <div className="hidden lg:flex">
           <a
-            href="https://drive.google.com/file/d/18yB5t33e-vzqGwFp3Nr_gD0M0NUWiISu/view?usp=sharing"
+            href="https://drive.google.com/file/d/1XwnSI1tyrirCHrly_YnFIYni_LwetreA/view?usp=sharing"
             target="_blank"
             download="Md-Shafiqul-Islam-Resume"
-            className="btn btn-outline btn-secondary rounded-md lg:px-6 hover:shadow"
+            className="btn  btn-secondary rounded-md lg:px-6 hover:shadow"
           >
             View Resume
           </a>
@@ -112,7 +113,7 @@ const Navbar = () => {
 
               {/* Resume Button for Mobile */}
               <a
-                href="https://drive.google.com/file/d/18yB5t33e-vzqGwFp3Nr_gD0M0NUWiISu/view?usp=sharing"
+                href="https://drive.google.com/file/d/1XwnSI1tyrirCHrly_YnFIYni_LwetreA/view?usp=sharing"
                 target="_blank"
                 download="Md-Shafiqul-Islam-Resume"
                 className="btn btn-outline btn-secondary rounded-md lg:px-6 hover:shadow"

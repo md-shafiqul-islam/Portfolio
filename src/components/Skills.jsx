@@ -64,16 +64,16 @@ const skills = {
   ],
 };
 
-// Star component
+// Star Rating Component
 const StarRating = ({ count }) => (
-  <div className="flex space-x-1">
+  <div className="flex space-x-0.5">
     {[...Array(5)].map((_, i) =>
       i < count ? (
-        <span key={i} className="text-secondary text-base">
+        <span key={i} className="text-secondary text-sm">
           ★
         </span>
       ) : (
-        <span key={i} className="text-base-300 text-base">
+        <span key={i} className="text-base-300 text-sm">
           ☆
         </span>
       )
@@ -85,20 +85,20 @@ const Skills = () => {
   return (
     <section id="skills" className="bg-base-200 py-20 px-6 lg:px-10">
       <div className="max-w-6xl mx-auto">
-        {/* Heading */}
-        <div className="mb-12 space-y-3 text-center">
+        {/* Section Heading */}
+        <div className="mb-12 text-center space-y-3">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">
             Skills
           </h2>
           <p className="text-primary text-base sm:text-lg font-normal leading-snug max-w-2xl mx-auto">
             Technologies I use to build modern, scalable, and efficient web
-            applications.
+            apps.
           </p>
         </div>
 
-        {/* Grid */}
+        {/* Skills Grid */}
         <div className="grid lg:grid-cols-2 gap-10 text-left">
-          {/* Proficient */}
+          {/* Proficient Section */}
           <div>
             <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
               🚀 <span>Proficient In</span>
@@ -108,19 +108,19 @@ const Skills = () => {
               {skills.Proficient.map((skill, i) => (
                 <Zoom
                   key={skill.name}
-                  delay={i * 50}
-                  duration={600}
+                  delay={i * 60}
+                  duration={500}
                   triggerOnce
                 >
-                  <div className="group relative p-6 rounded-3xl bg-base-200 border-2 border-secondary shadow-lg shadow-secondary/30 ring-1 ring-inset ring-base-100 flex items-center gap-5 transition duration-500 ease-in-out hover:scale-[1.03]">
+                  <div className="group p-6 rounded-3xl bg-base-100 border border-base-300 shadow-md flex items-center gap-5 transition-transform duration-300 hover:scale-[1.03]">
                     <div
-                      className="text-4xl transition-transform duration-300 tooltip tooltip-right"
+                      className="text-4xl tooltip tooltip-top"
                       data-tip={skill.name}
                     >
                       {skill.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg sm:text-xl font-semibold text-primary group-hover:text-accent transition duration-300">
+                      <h4 className="text-lg font-semibold text-primary group-hover:text-accent transition duration-300">
                         {skill.name}
                       </h4>
                       <StarRating count={skill.stars} />
@@ -131,7 +131,7 @@ const Skills = () => {
             </div>
           </div>
 
-          {/* Familiar */}
+          {/* Familiar Section */}
           <div>
             <h3 className="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
               🛠 <span>Familiar With</span>
@@ -141,19 +141,19 @@ const Skills = () => {
               {skills.Familiar.map((skill, i) => (
                 <Zoom
                   key={skill.name}
-                  delay={i * 50}
-                  duration={600}
+                  delay={i * 60}
+                  duration={500}
                   triggerOnce
                 >
-                  <div className="group relative p-6 rounded-3xl bg-base-200 border-2 border-secondary shadow-lg shadow-secondary/30 ring-1 ring-inset ring-base-100 flex items-center gap-5 transition duration-500 ease-in-out hover:scale-[1.03]">
+                  <div className="group p-6 rounded-3xl bg-base-100 border border-base-300 shadow-md flex items-center gap-5 transition-transform duration-300 hover:scale-[1.03]">
                     <div
-                      className="text-4xl transition-transform duration-300 tooltip tooltip-right"
+                      className="text-4xl tooltip tooltip-top"
                       data-tip={skill.name}
                     >
                       {skill.icon}
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg sm:text-xl font-semibold text-primary group-hover:text-accent transition duration-300">
+                      <h4 className="text-lg font-semibold text-primary group-hover:text-accent transition duration-300">
                         {skill.name}
                       </h4>
                       <StarRating count={skill.stars} />

@@ -9,6 +9,7 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 import { useEffect } from "react";
 import Aos from "aos";
+import Courses from "../components/Courses";
 
 const RootLayout = () => {
   const { scrollYProgress } = useScroll();
@@ -34,8 +35,9 @@ const RootLayout = () => {
           <Hero />
           <AboutMe />
           <Skills />
-          <Education />
           <Projects />
+          <Education />
+          <Courses />
           <Contact />
         </main>
 

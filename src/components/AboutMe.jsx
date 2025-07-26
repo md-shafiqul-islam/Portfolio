@@ -13,7 +13,7 @@ const AboutMe = () => {
 
             <p className="text-primary text-base sm:text-lg font-normal leading-snug max-w-2xl mx-auto">
               Focused on building real-world solutions through clean code,
-              teamwork, and continuous learning.
+              collaboration, and constant learning.
             </p>
           </div>
 
@@ -25,32 +25,41 @@ const AboutMe = () => {
                 <span className="font-semibold text-accent underline decoration-accent/40 underline-offset-4">
                   Md. Shafiqul Islam
                 </span>
-                , a passionate Full-Stack MERN Developer based in Bangladesh. I
-                love building clean, responsive UIs and developing robust
-                backends that power modern digital experiences.
+                , a Web Developer based in Bangladesh — driven by curiosity and
+                a love for building things that work.
               </p>
             </Slide>
 
             <Slide direction="up" delay={100} triggerOnce>
               <p>
-                I began my journey as a self-taught developer, diving deep into
-                full-stack projects using React, Node.js, Express, and MongoDB.
-                To strengthen my foundation and grow professionally, I enrolled
-                in{" "}
-                <span className="font-semibold text-accent">
-                  Programming Hero
-                </span>
-                , which helped me refine both my technical and problem-solving
-                skills.
+                I didn’t stumble into web development — I chose it. What drew me
+                in wasn’t just the thrill of coding, but the process itself:
+                taking an idea, breaking it down, and bringing it to life
+                through logic and design.
               </p>
             </Slide>
 
             <Slide direction="up" delay={200} triggerOnce>
               <p>
-                Today, I focus on writing clean, reusable code and constantly
-                leveling up my skills. I'm actively seeking opportunities to
-                collaborate with innovative teams where I can contribute, learn,
-                and grow as a developer.
+                From day one, I made the decision: if I’m doing this, I’ll do it
+                right. Not just tutorials — full-stack apps that solve real
+                problems. Every project has pushed me to think like a developer
+                who builds clean, functional, and user-focused software.
+              </p>
+            </Slide>
+
+            <Slide direction="up" delay={300} triggerOnce>
+              <p>
+                This isn’t just a job path — it’s a career I’m shaping, one line
+                of code at a time. I care about clarity, usability, and never
+                shipping anything I wouldn’t use myself.
+              </p>
+            </Slide>
+
+            <Slide direction="up" delay={400} triggerOnce>
+              <p>
+                I’m not chasing trends. I’m building skills. And I’m just
+                getting started.
               </p>
             </Slide>
           </div>
