@@ -1,12 +1,59 @@
-# React + Vite
+# Md. Shafiqul Islam – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio repository! This is the source code for my personal portfolio website showcasing my web development projects, skills, and experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## About Me
 
-## Expanding the ESLint configuration
+I’m Shafiq, a passionate Web Developer focused on building clean, functional, and user-friendly web applications using modern technologies. I specialize in React, Tailwind CSS, Node.js, and MongoDB. This portfolio highlights my real-world projects and development journey.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Portfolio Highlights
+
+- **CraftFlow** — Role-based employee management system with task tracking and payroll
+- **EduCare** — Service sharing platform for booking educational services
+- **CookSy** — Recipe sharing and management application
+
+Explore these projects and more in the portfolio live at: [https://shafiqul-islam.netlify.app/](https://shafiqul-islam.netlify.app/)
+
+---
+
+## Tech Stack
+
+- **Frontend:** React, Tailwind CSS, DaisyUI  
+- **Tools:** Vite, Git, GitHub, Framer Motion
+
+---
+
+## Features
+
+- Fully responsive, mobile-friendly design  
+- Clean codebase with organized folder structure  
+- Smooth animations and interactive UI  
+- Project showcases with screenshots and live demos
+
+---
+
+## Getting Started
+
+To run this portfolio locally:
+git clone https://github.com/md-shafiqul-islam/portfolio.git
+cd portfolio
+npm install
+npm run dev
+
+---
+
+## Contact
+
+-- Email: shafiqul.islam3558@gmail.com
+-- Portfolio: https://shafiqul-islam.netlify.app
+-- GitHub: https://github.com/md-shafiqul-islam
+
+---
+
+Made with 💻 and ☕ by Md. Shafiqul Islam
+
+---
