@@ -1,59 +1,28 @@
 import Typewriter from "typewriter-effect";
-import { motion as Motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn, FaDownload } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { HiArrowDownCircle } from "react-icons/hi2";
 import heroImage from "../assets/profile/pic-1.PNG";
 import { FaXTwitter } from "react-icons/fa6";
 
-const textStagger = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const textItem = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
-
 const Hero = () => {
   return (
-    <Motion.section
+    <section
       id="hero"
-      className="bg-primary flex flex-col justify-center items-center min-h-[90vh] p-4 relative overflow-hidden"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.8 }}
+      className="flex flex-col justify-center items-center min-h-[90vh] md:min-h-[85vh] lg:min-h-[70vh] p-4 md:p-6 lg:p-8 bg-primary"
     >
       {/* Main content */}
-      <div className="flex flex-col-reverse lg:flex-row items-center max-w-7xl w-full gap-10 z-10">
+      <div className="w-full max-w-6xl mx-auto flex flex-col-reverse justify-center items-center gap-8 md:gap-10 lg:flex-row lg:justify-between">
         {/* Left: Content */}
-        <Motion.div
-          className="flex-1 text-center lg:text-left space-y-6"
-          variants={textStagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-        >
-          <Motion.h1
-            className="text-4xl lg:text-5xl font-extrabold text-secondary"
-            variants={textItem}
-          >
+        <div className="flex-1 text-center lg:text-start space-y-4 md:space-y-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-accent">
             Md. Shafiqul Islam
-          </Motion.h1>
+          </h1>
 
-          <Motion.h2
-            className="text-xl lg:text-2xl font-semibold text-accent"
-            variants={textItem}
-          >
+          <h2 className="text-base md:text-lg lg:text-xl font-semibold md:font-bold text-accent">
             <Typewriter
               options={{
-                strings: ["Full Stack Web Developer (MERN Stack)"],
+                strings: ["Full Stack Web Developer (MERN)"],
                 autoStart: true,
                 loop: true,
                 delay: 70,
@@ -61,95 +30,76 @@ const Hero = () => {
                 cursor: "_",
               }}
             />
-          </Motion.h2>
+          </h2>
 
-          <Motion.p className="text-lg text-secondary" variants={textItem}>
-            I create fast, secure MERN stack apps with clean UI and smart
-            backend logic — no fluff, just results.
-          </Motion.p>
+          <p className="text-sm md:text-base font-medium text-text-accent/90 leading-relaxed">
+            Craft MERN stack apps that are <br /> fast, clean, and reliable.
+          </p>
 
           {/* Social Links */}
-          <Motion.div
-            className="flex justify-center lg:justify-start gap-4 flex-wrap"
-            variants={textItem}
-          >
-            <Motion.a
+          <div className="flex justify-center lg:justify-start gap-3 md:gap-4 flex-wrap">
+            <a
               href="https://github.com/md-shafiqul-islam"
               target="_blank"
-              className="btn btn-secondary rounded-full text-white text-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn btn-secondary rounded-full text-text-accent text-lg transition-transform duration-300 hover:scale-105 hover:brightness-110"
             >
               <FaGithub />
-            </Motion.a>
-            <Motion.a
+            </a>
+
+            <a
               href="https://www.linkedin.com/in/mdshafiqulislam1/"
               target="_blank"
-              className="btn btn-secondary rounded-full text-white text-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn btn-secondary rounded-full text-text-accent text-lg transition-transform duration-300 hover:scale-105 hover:brightness-110"
             >
               <FaLinkedinIn />
-            </Motion.a>
-            <Motion.a
+            </a>
+
+            <a
               href="https://x.com/shafiqul3558"
               target="_blank"
-              className="btn btn-secondary rounded-full text-white text-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn btn-secondary rounded-full text-text-accent text-lg transition-transform duration-300 hover:scale-105 hover:brightness-110"
             >
               <FaXTwitter />
-            </Motion.a>
-          </Motion.div>
+            </a>
+          </div>
 
           {/* Resume Button */}
-          <Motion.a
-            href="/Md_Shafiqul_Islam_Resume.pdf"
-            download="Md-Shafiqul-Islam-Resume"
-            className="btn btn-accent text-white rounded-md px-8 hover:shadow-xl mt-4 inline-flex items-center gap-2"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FaDownload /> Download Resume
-          </Motion.a>
-        </Motion.div>
+          <div className="pt-2">
+            <a
+              href="/Md_Shafiqul_Islam_Resume.pdf"
+              download="Md-Shafiqul-Islam-Resume"
+              className="btn btn-accent text-base-200 rounded-full px-6 md:px-8 hover:shadow-xl transition-transform duration-300 hover:scale-105"
+            >
+              <FaDownload /> Download Resume
+            </a>
+          </div>
+        </div>
 
         {/* Right: Image */}
-        <Motion.div
-          className="flex-1 flex justify-center items-center"
-          initial={{ x: 50, opacity: 0, rotate: 5, filter: "blur(4px)" }}
-          animate={{ x: 0, opacity: 1, rotate: 0, filter: "blur(0)" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <Motion.img
-            className="w-52 h-52 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-secondary shadow-lg hover:scale-105 hover:shadow-[0_0_25px_#d6a553] transition duration-500"
+        <div className="flex-1 flex justify-center lg:justify-end items-center">
+          <img
+            className="w-48 h-48 md:w-60 md:h-60 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-secondary shadow-lg hover:scale-105 transition-transform duration-500"
             src={heroImage}
             alt="Md. Shafiqul Islam Profile"
-            whileHover={{ scale: 1.05 }}
           />
-        </Motion.div>
+        </div>
       </div>
 
       {/* Scroll Down Indicator */}
-      <Motion.div
-        className="mt-10 text-secondary text-4xl cursor-pointer"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 1.2,
-          duration: 0.6,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
+      <button
+        className="animate-bounce bg-accent text-base-200 text-4xl p-2 rounded-full shadow-lg hover:bg-secondary/90 transition duration-300 border-2 border-accent cursor-pointer mt-6 md:mt-8 lg:mt-10"
+        title="Scroll Down"
       >
-        <Link to="about" smooth={true} duration={500}>
+        <Link
+          to="about"
+          smooth={true}
+          duration={500}
+          className="flex items-center justify-center"
+        >
           <HiArrowDownCircle />
         </Link>
-      </Motion.div>
-    </Motion.section>
+      </button>
+    </section>
   );
 };
 

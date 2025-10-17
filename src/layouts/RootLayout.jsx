@@ -26,12 +26,12 @@ const RootLayout = () => {
         style={{ scaleX: scrollYProgress }}
       />
 
-      <div>
-        <header className="sticky top-0 z-50">
+      <div className="flex flex-col min-h-screen">
+        <header className="sticky top-0 z-50 bg-primary/95">
           <Navbar />
         </header>
 
-        <main>
+        <main className="flex-1 bg-primary/40">
           <Hero />
           <AboutMe />
           <Skills />
@@ -41,7 +41,7 @@ const RootLayout = () => {
           <Contact />
         </main>
 
-        <footer>
+        <footer className="bg-primary/95">
           <Footer />
         </footer>
       </div>

@@ -1,21 +1,25 @@
 @import "tailwindcss";
+
 @plugin "daisyui" {
-  themes: light --default;
+  themes: dark --default;
 }
 
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "dark";
   default: true;
-  --color-primary: #1b0c27;
-  --color-secondary: #d6a553;
 
-  --color-accent: #10b981;
-  --text-accent: #7c3aed;
+  /* Dark, natural, and modern theme */
+  --color-primary: #1a3636; /* Highlight / buttons / active links */
+  --color-secondary: #40534c; /* Soft accent for hover states or text */
+  --color-accent: #677d6a; /* Borders, subtle UI details */
+  --text-accent: #d6bd98; /* Accent text color */
 
-  --color-base-200: #fdfdfd;
-  --color-base-300: #f3f4f6;
-}
+  --color-base-200: #1a3636; /* Main background */
+  --color-base-300: #40534c; /* Slightly lighter background layer */
 
-.text-accent {
-  @apply text-accent font-bold;
+  /* --- Fix visibility --- */
+  --color-base-content: #d6bd98; /* Main readable text */
+  --color-primary-content: #d6bd98; /* Text inside primary buttons */
+  --color-secondary-content: #d6bd98; /* Text inside secondary buttons */
+  --color-accent-content: #1a3636; /* Text inside accent buttons */
 }

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import { HiArrowUpCircle } from "react-icons/hi2";
-import { motion as Motion } from "framer-motion";
 
 const Footer = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 100);
+      setShowScrollTop(window.scrollY > 150);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -19,32 +18,32 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-primary text-secondary py-6">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        <p className="text-sm font-sans">
+    <footer className="relative text-text-accent py-8 border-t-2 border-secondary backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto px-6 text-center space-y-2">
+        <p className="text-sm sm:text-base font-sans tracking-wide leading-relaxed">
           &copy; {new Date().getFullYear()}{" "}
-          <span className="font-serif font-extrabold">Md. Shafiqul Islam</span>{" "}
-          — All Rights Reserved.
+          <span className="font-serif font-semibold text-accent">
+            Md. Shafiqul Islam
+          </span>{" "}
+          - All Rights Reserved.
         </p>
-        <p className="text-xs mt-1 font-sans">
+        <p className="text-xs sm:text-sm text-accent/80 font-sans">
           Built with{" "}
-          <span className="text-accent">💻 React & Tailwind CSS</span>
+          <span className="font-semibold text-text-accent">React</span> &{" "}
+          <span className="font-semibold text-text-accent">Tailwind CSS</span>
         </p>
       </div>
 
+      {/* Scroll To Top */}
       {showScrollTop && (
-        <Motion.button
+        <button
           onClick={scrollToTop}
           aria-label="Scroll to top"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-6 right-6 text-accent hover:text-accent/80 text-4xl cursor-pointer transition-opacity duration-500 opacity-100 z-50 bg-white/10 backdrop-blur rounded-full p-1 shadow-md"
+          className="animate-bounce fixed bottom-6 right-6 text-4xl bg-accent text-base-200 p-2 rounded-full shadow-lg border border-secondary hover:bg-secondary hover:text-text-accent transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer"
           title="Back to top"
         >
           <HiArrowUpCircle />
-        </Motion.button>
+        </button>
       )}
     </footer>
   );
