@@ -66,16 +66,16 @@ const Hero = () => {
           {/* Resume & CV Button */}
           <div className="flex flex-col flex-wrap justify-center lg:flex-row lg:justify-start gap-3 pt-3">
             <a
-              href="/Md_Shafiqul_Islam_Resume.pdf"
-              download="Md-Shafiqul-Islam-Resume"
+              href="/public/Md_Shafiqul_Islam_Resume.pdf"
+              download="Md Shafiqul Islam Resume"
               className="btn btn-accent text-base-200 rounded-full px-6 md:px-8 hover:shadow-xl transition-transform duration-300 hover:scale-105"
             >
               <FaDownload /> Download Resume
             </a>
 
             <a
-              href="/Md_Shafiqul_Islam_CV.pdf"
-              download="Md-Shafiqul-Islam-Resume"
+              href="/public/Md_Shafiqul_Islam_CV.pdf"
+              download="Md Shafiqul Islam CV"
               className="btn btn-accent text-base-200 rounded-full px-6 md:px-8 hover:shadow-xl transition-transform duration-300 hover:scale-105"
             >
               <FaDownload /> Download CV
