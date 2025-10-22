@@ -6,7 +6,7 @@ import logo from "../assets/logo/logo-nav.png";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Close menu on Escape key (good practice)
+  // Close menu on Escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") setMenuOpen(false);
@@ -20,6 +20,7 @@ const Navbar = () => {
     { name: "About", to: "about" },
     { name: "Skills", to: "skills" },
     { name: "Projects", to: "projects" },
+    { name: "Experiences", to: "experiences" },
     { name: "Education", to: "education" },
     { name: "Courses", to: "courses" },
     { name: "Contact", to: "contact" },
@@ -80,7 +81,7 @@ const Navbar = () => {
         {/* Resume Button */}
         <div className="hidden lg:block">
           <a
-            href="https://drive.google.com/file/d/1h3eesjwdaR4pqfPTZMXF17wr10EsmLt8/view?usp=sharing"
+            href="https://drive.google.com/file/d/1iIovRpNCZ2W4QpX-n0c8s1eSX4ZKGmWk/view"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-accent text-text-accent rounded-full px-6 md:px-8 py-2 md:py-2.5 text-sm md:text-base hover:brightness-110 hover:shadow-lg transition-transform duration-300 hover:scale-105"
@@ -121,7 +122,7 @@ const Navbar = () => {
 
           {/* Bottom: Resume button */}
           <a
-            href="https://drive.google.com/file/d/1h3eesjwdaR4pqfPTZMXF17wr10EsmLt8/view?usp=sharing"
+            href="https://drive.google.com/file/d/1iIovRpNCZ2W4QpX-n0c8s1eSX4ZKGmWk/view"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-accent text-base-200 px-5 py-2 rounded-full font-medium shadow hover:bg-secondary/90 transition-colors duration-300 mt-6 text-center"

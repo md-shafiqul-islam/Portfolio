@@ -63,14 +63,22 @@ const Hero = () => {
             </a>
           </div>
 
-          {/* Resume Button */}
-          <div className="pt-2">
+          {/* Resume & CV Button */}
+          <div className="flex flex-col flex-wrap justify-center lg:flex-row lg:justify-start gap-3 pt-3">
             <a
               href="/Md_Shafiqul_Islam_Resume.pdf"
               download="Md-Shafiqul-Islam-Resume"
               className="btn btn-accent text-base-200 rounded-full px-6 md:px-8 hover:shadow-xl transition-transform duration-300 hover:scale-105"
             >
               <FaDownload /> Download Resume
+            </a>
+
+            <a
+              href="/Md_Shafiqul_Islam_CV.pdf"
+              download="Md-Shafiqul-Islam-Resume"
+              className="btn btn-accent text-base-200 rounded-full px-6 md:px-8 hover:shadow-xl transition-transform duration-300 hover:scale-105"
+            >
+              <FaDownload /> Download CV
             </a>
           </div>
         </div>
@@ -87,7 +95,7 @@ const Hero = () => {
 
       {/* Scroll Down Indicator */}
       <button
-        className="animate-bounce bg-accent text-base-200 text-4xl p-2 rounded-full shadow-lg hover:bg-secondary/90 transition duration-300 border-2 border-accent cursor-pointer mt-6 md:mt-8 lg:mt-10"
+        className="animate-bounce bg-accent text-base-200 text-4xl p-2 rounded-full shadow-lg hover:bg-secondary/90 transition duration-300 border-2 border-accent cursor-pointer mt-8 md:mt-10 lg:mt-12"
         title="Scroll Down"
       >
         <Link

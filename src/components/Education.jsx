@@ -76,7 +76,7 @@ const Education = () => {
 
                   {/* Right Side */}
                   <div className="self-start md:self-center">
-                    <span className="inline-block bg-gradient-to-r from-accent to-secondary text-base-200 font-semibold text-sm sm:text-base px-6 py-2 rounded-xl shadow-sm tracking-wide">
+                    <span className="inline-block bg-gradient-to-r from-accent to-secondary text-base-200 font-semibold text-sm sm:text-base px-6 py-2 rounded-xl shadow-sm tracking-normal">
                       {edu.result}
                     </span>
                   </div>

@@ -153,7 +153,7 @@ const Skills = () => {
                 {skills.Proficient.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-4 bg-base-300/40 border border-base-300/60 rounded-xl px-4 py-3 hover:border-accent/60 hover:bg-base-200/60 transition-all duration-300"
+                    className="flex items-center gap-4 bg-base-300/40 dark:bg-base-200/30 border border-base-300/60 rounded-xl px-4 py-3 hover:border-accent/60 hover:bg-base-200/60 transition-all duration-300"
                   >
                     <div className="text-3xl">{skill.icon}</div>
                     <div className="flex-1">
@@ -178,7 +178,7 @@ const Skills = () => {
                 {skills.Familiar.map((skill) => (
                   <div
                     key={skill.name}
-                    className="flex items-center gap-4 bg-base-300/40 border border-base-300/60 rounded-xl px-4 py-3 hover:border-accent/60 hover:bg-base-200/60 transition-all duration-300"
+                    className="flex items-center gap-4 bg-base-300/40 dark:bg-base-200/30 border border-base-300/60 rounded-xl px-4 py-3 hover:border-accent/60 hover:bg-base-200/60 transition-all duration-300"
                   >
                     <div className="text-3xl">{skill.icon}</div>
                     <div className="flex-1">

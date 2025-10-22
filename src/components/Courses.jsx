@@ -50,7 +50,7 @@ const Courses = () => {
         <div className="grid gap-12 sm:gap-14 md:gap-16">
           {coursesData.map((course, i) => (
             <Fade key={i} direction={i % 2 === 0 ? "up" : "down"} triggerOnce>
-              <div className="relative group bg-base-300/40 border border-accent/40 rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
+              <div className="relative group bg-base-300/40 dark:bg-base-200/30 border border-accent/40 rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
                 {/* Glow Accent */}
                 <span className="absolute -top-3 left-8 w-8 h-8 bg-gradient-to-tr from-secondary to-accent rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></span>
 
@@ -86,7 +86,7 @@ const Courses = () => {
 
                   {/* Right Side */}
                   <div className="self-start md:self-center">
-                    <span className="inline-block bg-gradient-to-r from-accent to-secondary text-base-200 font-semibold text-sm sm:text-base px-6 py-2 rounded-xl shadow-sm tracking-wide">
+                    <span className="inline-block bg-gradient-to-r from-accent to-secondary text-base-200 font-semibold text-sm sm:text-base px-6 py-2 rounded-xl shadow-sm tracking-normal">
                       {course.result}
                     </span>
                   </div>

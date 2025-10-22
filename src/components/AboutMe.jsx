@@ -27,33 +27,46 @@ const AboutMe = () => {
         {/* Content */}
         <Fade triggerOnce direction="up" damping={0.2}>
           <div className="relative bg-base-300/40 rounded-2xl shadow-lg backdrop-blur-sm p-6 md:p-10 lg:p-12 border border-base-300/40 transition-colors duration-300 hover:border-accent/60">
-            <div className="space-y-6 md:space-y-7 lg:space-y-8 text-base md:text-lg leading-relaxed tracking-wide text-justify">
+            <div className="space-y-6 md:space-y-7 lg:space-y-8 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-normal text-justify">
               <p>
-                Hey, I’m{" "}
+                I’m{" "}
                 <span className="font-semibold text-accent">
                   Md. Shafiqul Islam
                 </span>
-                . I graduated with a degree in Computer Science, and somewhere
-                between curiosity and countless late-night debugging sessions, I
-                found what I actually want to do for the rest of my life - build
-                for the web.
+                , a{" "}
+                <span className="font-semibold text-accent">
+                  passionate web developer and Computer Science graduate
+                </span>{" "}
+                from <b>Daffodil International University (CSE, 2018)</b>.
               </p>
 
               <p>
-                My approach is simple: I learn by building. Every project I
-                create has a purpose - whether it’s improving performance,
-                experimenting with new tools, or digging deeper into backend
-                logic.
+                My journey wasn’t straightforward - I worked in non-tech roles
+                for several years, but I never stopped chasing my dream of
+                becoming a software developer. While working full-time, I taught
+                myself programming, starting with Java, then building a strong
+                base in <strong>C, C++, Data Structures, and Algorithms</strong>{" "}
+                through <b>Phitron</b>. Later, I deepened my skills in modern
+                web development through the <b>Programming Hero</b> course.
               </p>
 
               <p>
-                I’m practical enough to plan, ambitious enough to dream big, and
-                disciplined enough to show up every day. I’m building my career
-                one line of code at a time - focused on creating meaningful
-                digital experiences that truly make an impact.
+                My approach is simple: <strong>I learn by building.</strong>{" "}
+                Every project I create has a purpose - whether it’s{" "}
+                <strong>improving performance</strong>,{" "}
+                <strong>experimenting with new tools</strong>, or{" "}
+                <strong>digging deeper into backend logic</strong>.
               </p>
 
-              <p className="text-text-accent/90 italic border-l-4 border-accent pl-4">
+              <p>
+                Now, I’m focused on crafting clean, functional, and
+                user-centered web applications. I’m continuously learning,
+                improving, and working toward becoming a{" "}
+                <strong>skilled software engineer</strong> who creates solutions
+                that truly matter.
+              </p>
+
+              <p className="text-text-accent/90 italic border-l-4 border-accent pl-3 sm:pl-4">
                 In short: I’m not just learning to code - I’m building a life
                 out of it.
               </p>
