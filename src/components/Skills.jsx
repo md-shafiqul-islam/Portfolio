@@ -129,7 +129,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <Fade triggerOnce direction="up" damping={0.3}>
-          <div className="mb-12 text-center">
+          <div className="text-center mb-12 md:mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
               Skills
             </h2>
@@ -157,7 +157,7 @@ const Skills = () => {
                   >
                     <div className="text-3xl">{skill.icon}</div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-text-accent">
+                      <h4 className="text-base md:text-lg lg:text-xl font-semibold text-text-accent">
                         {skill.name}
                       </h4>
                       <StarRating count={skill.stars} />

@@ -27,13 +27,9 @@ const AboutMe = () => {
         {/* Content */}
         <Fade triggerOnce direction="up" damping={0.2}>
           <div className="relative bg-base-300/40 rounded-2xl shadow-lg backdrop-blur-sm p-6 md:p-10 lg:p-12 border border-base-300/40 transition-colors duration-300 hover:border-accent/60">
-            <div className="space-y-6 md:space-y-7 lg:space-y-8 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed tracking-normal text-justify">
+            <div className="space-y-6 md:space-y-7 lg:space-y-8 text-base md:text-lg lg:text-xl leading-relaxed tracking-normal text-justify">
               <p>
-                I’m{" "}
-                <span className="font-semibold text-accent">
-                  Md. Shafiqul Islam
-                </span>
-                , a{" "}
+                A{" "}
                 <span className="font-semibold text-accent">
                   passionate web developer and Computer Science graduate
                 </span>{" "}

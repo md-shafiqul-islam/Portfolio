@@ -26,7 +26,7 @@ const Education = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <div className="mb-16 text-center space-y-4">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-text-accent">
             Education
           </h2>
@@ -49,7 +49,7 @@ const Education = () => {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <FaGraduationCap className="text-accent text-3xl" />
-                      <h3 className="text-lg font-bold text-text-accent font-serif">
+                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-text-accent font-serif">
                         {edu.title}
                       </h3>
                     </div>

@@ -132,7 +132,7 @@ const Projects = () => {
                   <div className="flex items-center gap-3">
                     <img src={project.logo} alt="logo" className="w-8 h-8" />
                     <div>
-                      <h3 className="text-xl font-bold text-accent brightness-150">
+                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-accent brightness-150">
                         {project.name}
                       </h3>
                       <p className="text-sm text-accent">{project.tag}</p>

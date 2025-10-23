@@ -15,8 +15,8 @@ const Experiences = () => {
     {
       image: quantanite,
       year: "Nov 2019 - Aug 2021",
-      role: "Analyst",
-      company: "Quantanite",
+      role: "Data Analyst",
+      company: "Quantanite Bangladesh Ltd.",
       description:
         "Worked in data processing, content moderation, and reporting. Developed analytical thinking, attention to detail, and professional communication skills in a fast-paced environment.",
     },
@@ -29,14 +29,14 @@ const Experiences = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12 md:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight md:tracking-wide">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
             Work{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
               Experiences
             </span>
           </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-text-accent/80 leading-snug max-w-2xl mx-auto">
+          <p className="mt-4 text-base md:text-lg lg:text-xl text-text-accent/80 leading-snug max-w-2xl mx-auto">
             From non-tech beginnings to full-stack development, here's my
             journey of learning, growth, and transition.
           </p>
@@ -59,18 +59,18 @@ const Experiences = () => {
                     className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-full flex-shrink-0"
                   />
                   <div className="flex-1">
-                    <span className="block font-bold text-sm sm:text-base md:text-lg lg:text-xl">
+                    <span className="block font-bold text-base md:text-lg lg:text-xl">
                       {exp.company}
                     </span>
-                    <span className="block font-medium text-xs sm:text-sm md:text-base text-text-accent/90">
+                    <span className="block font-medium text-sm md:text-base text-text-accent/90">
                       {exp.role}
                     </span>
                   </div>
-                  <span className="mt-1 sm:mt-0 font-semibold text-sm sm:text-base md:text-lg lg:text-xl text-accent">
+                  <span className="mt-1 sm:mt-0 font-semibold text-base md:text-lg lg:text-xl text-accent">
                     {exp.year}
                   </span>
                 </div>
-                <p className="text-sm sm:text-base md:text-base lg:text-lg text-text-accent/90 text-justify flex-1">
+                <p className="text-base lg:text-lg text-text-accent/90 text-justify flex-1">
                   {exp.description}
                 </p>
               </div>

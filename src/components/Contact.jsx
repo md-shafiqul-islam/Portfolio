@@ -42,7 +42,7 @@ const Contact = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
-        <div className="mb-12 text-center space-y-3">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-text-accent">
             Get in{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
@@ -51,7 +51,7 @@ const Contact = () => {
           </h2>
 
           <p className="mt-4 text-base md:text-lg lg:text-xl text-text-accent/80 leading-snug max-w-2xl mx-auto">
-            Let’s connect - whether it’s a collaboration, project idea, or just
+            Let's connect - whether it's a collaboration, project idea, or just
             a good conversation.
           </p>
         </div>
@@ -66,17 +66,17 @@ const Contact = () => {
 
             <div className="flex flex-col lg:justify-center h-3/4 space-y-4 text-text-accent text-sm sm:text-base font-sans">
               <p className="flex items-center gap-3">
-                <FaEnvelope className="text-accent text-xl" />
+                <FaEnvelope className="text-accent text-base md:text-lg lg:text-xl" />
                 <span className="font-medium">
                   shafiqul.islam3558@gmail.com
                 </span>
               </p>
               <p className="flex items-center gap-3">
-                <FaPhoneAlt className="text-accent text-xl" />
-                <span className="font-medium">+880 1717 910578</span>
+                <FaPhoneAlt className="text-accent text-base md:text-lg lg:text-xl" />
+                <span className="font-medium">+880 1717 910578 (WhatsApp)</span>
               </p>
               <p className="flex items-center gap-3">
-                <FaMapMarkerAlt className="text-accent text-xl" />
+                <FaMapMarkerAlt className="text-accent text-base md:text-lg lg:text-xl" />
                 <span className="font-medium">Mymensingh, Bangladesh</span>
               </p>
             </div>
