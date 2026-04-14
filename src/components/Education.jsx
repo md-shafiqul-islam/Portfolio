@@ -1,89 +1,198 @@
-import { Zoom } from "react-awesome-reveal";
+import { useEffect, useState } from "react";
 import {
   FaGraduationCap,
   FaCalendarAlt,
-  FaSchool,
   FaMapMarkerAlt,
-  FaCertificate,
+  FaAward,
+  FaTrophy,
 } from "react-icons/fa";
 
-const educationData = [
-  {
-    title: "B.Sc. in Computer Science & Engineering",
-    institution: "Daffodil International University",
-    location: "Dhaka, Bangladesh",
-    period: "2014 – 2018",
-    program: "Regular Program",
-    result: "CGPA: 3.08 / 4.00",
-  },
-];
-
 const Education = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsVisible(true);
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    const element = document.getElementById("education");
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
+
+  const education = [
+    {
+      degree: "B.Sc. in Computer Science & Engineering",
+      institution: "Daffodil International University",
+      location: "Dhaka, Bangladesh",
+      period: "May 2014 – August 2018",
+      cgpa: "3.08 / 4.00",
+      highlights: [
+        "Studied core CS fundamentals: DSA, OOP, Database Systems",
+        "Built academic projects using Java, C++, and web basics",
+        "Foundation that later powered full-stack development journey",
+      ],
+    },
+    {
+      degree: "Higher Secondary Certificate (HSC) – Science",
+      institution: "Bogura Cantonment Public School & College",
+      location: "Bogura, Bangladesh",
+      period: "2010 – 2012",
+      cgpa: "5.00 / 5.00",
+      highlights: [
+        "Achieved perfect GPA with strong Math & Physics performance",
+        "Developed analytical and problem-solving mindset",
+      ],
+    },
+    {
+      degree: "Secondary School Certificate (SSC) – Science",
+      institution: "Bogura Cantonment Board High School",
+      location: "Bogura, Bangladesh",
+      period: "2008 – 2010",
+      cgpa: "5.00 / 5.00",
+      highlights: [
+        "Maintained consistent academic excellence",
+        "Built discipline and strong science foundation",
+      ],
+    },
+  ];
+
   return (
-    <section
-      id="education"
-      className="py-20 px-6 md:py-24 md:px-10 lg:px-16 text-text-accent"
-    >
-      <div className="max-w-6xl mx-auto">
+    <section id="education" className="py-20 px-4 md:px-6 lg:px-8 bg-base-200">
+      <div className="max-w-5xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide text-text-accent">
-            Education
+        <div
+          className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
+            Education <span className="text-primary">Background</span>
           </h2>
-          <p className="mt-4 text-base md:text-lg lg:text-xl text-text-accent/70 leading-relaxed max-w-2xl mx-auto font-sans">
-            A strong academic foundation that shaped how I think, analyze, and
-            approach real-world challenges.
+
+          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+
+          <p className="text-lg md:text-xl text-base-content/70 max-w-2xl mx-auto">
+            Academic foundation that shaped my analytical thinking and technical
+            journey
           </p>
         </div>
 
         {/* Education Cards */}
-        <div className="grid gap-12 sm:gap-14 md:gap-16">
-          {educationData.map((edu, i) => (
-            <Zoom key={i} triggerOnce>
-              <div className="relative group bg-base-300/40 border border-accent/30 rounded-3xl p-8 sm:p-10 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm">
-                {/* Glow Accent */}
-                <span className="absolute -top-3 left-8 w-8 h-8 bg-gradient-to-tr from-secondary to-accent rounded-full blur-sm opacity-70 group-hover:opacity-100 transition-opacity duration-300"></span>
+        <div className="space-y-6">
+          {education.map((edu, index) => {
+            const isTop = edu.cgpa.includes("5.00");
 
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  {/* Left Side */}
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <FaGraduationCap className="text-accent text-3xl" />
-                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-text-accent font-serif">
-                        {edu.title}
-                      </h3>
+            return (
+              <div
+                key={index}
+                className={`bg-base-300 border border-base-content/10 rounded-2xl p-6 md:p-8 hover:border-primary/30 hover:shadow-xl transition-all duration-500 ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
+                }}
+              >
+                <div className="flex flex-col md:flex-row md:items-start gap-6">
+                  {/* Left */}
+                  <div className="flex-1 space-y-4">
+                    {/* Title */}
+                    <div className="flex items-start gap-3">
+                      <div className="w-11 h-11 rounded-lg bg-primary/20 flex items-center justify-center text-primary text-xl">
+                        <FaGraduationCap />
+                      </div>
+
+                      <div>
+                        <h3 className="text-xl md:text-2xl font-bold text-base-content">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-base-content/70 font-medium">
+                          {edu.institution}
+                        </p>
+                      </div>
                     </div>
 
-                    <div className="space-y-1 text-sm sm:text-base">
-                      <p className="flex items-center gap-2 text-text-accent font-medium">
-                        <FaSchool className="text-accent" />
-                        {edu.institution}
-                      </p>
-                      <p className="flex items-center gap-2 text-text-accent">
-                        <FaMapMarkerAlt className="text-accent" />
+                    {/* Meta */}
+                    <div className="flex flex-wrap gap-4 text-sm text-base-content/70 ml-14">
+                      <span className="flex items-center gap-2">
+                        <FaMapMarkerAlt className="text-primary" />
                         {edu.location}
-                      </p>
-                      <p className="flex items-center gap-2 text-text-accent font-medium">
-                        <FaCalendarAlt className="text-accent" />
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <FaCalendarAlt className="text-primary" />
                         {edu.period}
-                      </p>
-                      <p className="flex items-center gap-2 text-text-accent">
-                        <FaCertificate className="text-accent" />
-                        {edu.program}
-                      </p>
+                      </span>
                     </div>
+
+                    {/* Highlights */}
+                    <ul className="ml-14 space-y-2">
+                      {edu.highlights.map((item, i) => (
+                        <li
+                          key={i}
+                          className="text-sm text-base-content/70 flex items-start gap-2"
+                        >
+                          <span className="text-primary mt-1">•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  {/* Right Side */}
-                  <div className="self-start md:self-center">
-                    <span className="inline-block bg-gradient-to-r from-accent to-secondary text-base-200 font-semibold text-sm sm:text-base px-6 py-2 rounded-xl shadow-sm tracking-normal">
-                      {edu.result}
-                    </span>
+                  {/* GPA */}
+                  <div className="flex md:flex-col items-start md:items-center gap-3">
+                    <div className="bg-base-200 border border-primary/30 rounded-xl px-6 py-4 text-center min-w-[120px]">
+                      <div className="flex justify-center mb-2">
+                        {isTop ? (
+                          <FaTrophy className="text-yellow-500 text-lg" />
+                        ) : (
+                          <FaAward className="text-primary text-lg" />
+                        )}
+                      </div>
+
+                      <p className="text-xl font-bold text-primary">
+                        {edu.cgpa.split("/")[0].trim()}
+                      </p>
+                      <p className="text-xs text-base-content/60">
+                        / {edu.cgpa.split("/")[1].trim()}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </Zoom>
-          ))}
+            );
+          })}
+        </div>
+
+        {/* Bottom Note */}
+        <div
+          className={`mt-16 bg-base-300 border border-primary/20 rounded-2xl p-6 md:p-8 transition-all duration-700 delay-500 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="flex items-start gap-4">
+            <FaGraduationCap className="text-primary text-2xl mt-1" />
+
+            <div>
+              <h3 className="text-xl font-semibold text-primary mb-2">
+                From Theory to Real Systems
+              </h3>
+
+              <p className="text-base-content/70 leading-relaxed">
+                My academic journey built the foundation, but real growth came
+                from applying those concepts in full-stack development. Today, I
+                focus on building scalable, production-ready applications with
+                practical engineering decisions.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

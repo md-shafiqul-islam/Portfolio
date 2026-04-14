@@ -1,81 +1,258 @@
-import { Fade } from "react-awesome-reveal";
-import trustbank from "../assets/jobs/trustbank.jpeg";
+import { useEffect, useState } from "react";
+import { FaGraduationCap } from "react-icons/fa";
 import quantanite from "../assets/jobs/quantanite.jpeg";
+import trustBank from "../assets/jobs/trustbank.jpeg";
+
+const colorMap = {
+  primary: {
+    dot: "bg-primary",
+    icon: "text-primary",
+    bg: "bg-primary/20",
+  },
+  secondary: {
+    dot: "bg-secondary",
+    icon: "text-secondary",
+    bg: "bg-secondary/20",
+  },
+  accent: {
+    dot: "bg-accent",
+    icon: "text-accent",
+    bg: "bg-accent/20",
+  },
+};
+
+const iconMap = {
+  dev: <FaGraduationCap />,
+  trustBank: trustBank,
+  quantanite: quantanite,
+};
+
+const renderIcon = (exp) => {
+  const icon = iconMap[exp.iconType];
+
+  if (typeof icon === "string") {
+    return (
+      <img
+        src={icon}
+        alt={exp.company}
+        className="w-full h-full object-contain p-1"
+      />
+    );
+  }
+
+  return icon;
+};
 
 const Experiences = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsVisible(true);
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    const element = document.getElementById("experiences");
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
+
   const experiences = [
     {
-      image: trustbank,
+      year: "2024 - Present",
+      duration: "1+ years",
+      role: "Full Stack Web Developer",
+      company: "Independent Learning Path",
+      description:
+        "Transitioned into full-stack development through structured learning and real-world projects. Focused on React ecosystem, backend APIs, authentication systems, and scalable architecture.",
+      skills: [
+        "React.js",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "PostgreSQL",
+        "Prisma ORM",
+        "JWT Auth",
+        "Stripe",
+      ],
+      iconType: "dev",
+      color: "primary",
+    },
+    {
       year: "Aug 2021 - Nov 2024",
+      duration: "3+ years",
       role: "Cash Officer",
       company: "Trust Bank PLC",
       description:
-        "Managed daily cash operations, vault handling, and customer transactions. Gained problem-solving skills, time management, and client communication while ensuring regulatory compliance and accuracy.",
+        "Handled high-volume financial transactions with strict compliance. Built strong discipline, accuracy, and problem-solving mindset in high-pressure environments.",
+      skills: [
+        "Financial Operations",
+        "Risk Management",
+        "Problem Solving",
+        "Attention to Detail",
+      ],
+      iconType: "trustBank",
+      color: "secondary",
     },
     {
-      image: quantanite,
       year: "Nov 2019 - Aug 2021",
+      duration: "1.9 years",
       role: "Data Analyst",
       company: "Quantanite Bangladesh Ltd.",
       description:
-        "Worked in data processing, content moderation, and reporting. Developed analytical thinking, attention to detail, and professional communication skills in a fast-paced environment.",
+        "Worked on structured data processing for global platforms. Ensured accuracy, consistency, and high-quality outputs under tight deadlines.",
+      skills: ["Data Processing", "Quality Assurance", "Analytical Thinking"],
+      iconType: "quantanite",
+      color: "accent",
     },
   ];
 
   return (
     <section
       id="experiences"
-      className="py-20 px-6 md:py-24 md:px-10 lg:px-16 text-text-accent"
+      className="py-20 px-4 md:px-6 lg:px-8 bg-base-300"
     >
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
-            Work{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
-              Experiences
-            </span>
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div
+          className={`text-center mb-16 transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
+            My <span className="text-primary">Journey</span>
           </h2>
-          <p className="mt-4 text-base md:text-lg lg:text-xl text-text-accent/80 leading-snug max-w-2xl mx-auto">
-            From non-tech beginnings to full-stack development, here's my
-            journey of learning, growth, and transition.
+
+          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+
+          <p className="text-lg md:text-xl text-base-content/70 max-w-2xl mx-auto">
+            From structured roles to full-stack engineering — building
+            discipline, analytical thinking, and scalable system design
           </p>
         </div>
 
-        {/* Experience Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
-          {experiences.map((exp, idx) => (
-            <Fade
-              key={idx}
-              triggerOnce
-              direction={idx % 2 === 0 ? "up" : "down"}
-              damping={0.2}
-            >
-              <div className="relative bg-base-300/40 dark:bg-base-200/30 rounded-2xl shadow-lg backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-10 border border-base-300/40 transition-colors duration-300 hover:border-accent/60 flex flex-col h-full">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mb-4">
-                  <img
-                    src={exp.image}
-                    alt={exp.company}
-                    className="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded-full flex-shrink-0"
-                  />
-                  <div className="flex-1">
-                    <span className="block font-bold text-base md:text-lg lg:text-xl">
-                      {exp.company}
-                    </span>
-                    <span className="block font-medium text-sm md:text-base text-text-accent/90">
-                      {exp.role}
-                    </span>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 h-full w-[2px] bg-primary/20"></div>
+
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const colors = colorMap[exp.color];
+
+              return (
+                <div
+                  key={index}
+                  className={`relative transition-all duration-700 ${
+                    isVisible
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8"
+                  }`}
+                  style={{
+                    transitionDelay: isVisible ? `${index * 200}ms` : "0ms",
+                  }}
+                >
+                  {/* Dot */}
+                  <div className="hidden md:block absolute left-1/2 -translate-x-1/2">
+                    <div
+                      className={`w-4 h-4 rounded-full ${colors.dot} border-4 border-base-300 shadow-md`}
+                    />
                   </div>
-                  <span className="mt-1 sm:mt-0 font-semibold text-base md:text-lg lg:text-xl text-accent">
-                    {exp.year}
-                  </span>
+
+                  <div
+                    className={`md:grid md:grid-cols-2 md:gap-8 ${
+                      index % 2 === 1 ? "md:grid-flow-dense" : ""
+                    }`}
+                  >
+                    {/* Year */}
+                    <div
+                      className={
+                        index % 2 === 0 ? "md:text-right" : "md:col-start-2"
+                      }
+                    >
+                      <span className="inline-block px-4 py-1 bg-primary/20 text-primary rounded-full text-sm font-semibold mb-2">
+                        {exp.year}
+                      </span>
+                    </div>
+
+                    {/* Card */}
+                    <div
+                      className={
+                        index % 2 === 0 ? "md:col-start-2" : "md:col-start-1"
+                      }
+                    >
+                      <div className="bg-base-200 rounded-2xl p-6 md:p-8 border border-base-content/10 hover:border-primary/40 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                        {/* Header */}
+                        <div className="flex items-start gap-4 mb-4">
+                          <div
+                            className={`w-12 h-12 rounded-lg ${colors.bg} flex items-center justify-center ${colors.icon} text-xl shadow-sm`}
+                          >
+                            {renderIcon(exp)}
+                          </div>
+
+                          <div>
+                            <h3 className="text-xl md:text-2xl font-bold text-base-content">
+                              {exp.role}
+                            </h3>
+                            <p className="text-base-content/70">
+                              {exp.company}
+                            </p>
+                            <p className="text-sm text-base-content/50">
+                              {exp.duration}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-base-content/70 leading-relaxed mb-4">
+                          {exp.description}
+                        </p>
+
+                        {/* Skills */}
+                        <div className="flex flex-wrap gap-2">
+                          {exp.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="px-3 py-1 bg-base-300 text-base-content/70 text-xs rounded-full border border-base-content/10"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="text-base lg:text-lg text-text-accent/90 text-justify flex-1">
-                  {exp.description}
-                </p>
-              </div>
-            </Fade>
-          ))}
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Bottom Insight */}
+        <div
+          className={`mt-16 bg-base-200 border border-primary/20 rounded-2xl p-8 md:p-10 transition-all duration-700 delay-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+        >
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl font-semibold text-primary">
+              What Shapes Me
+            </h3>
+            <p className="text-base md:text-lg text-base-content/70 max-w-3xl mx-auto">
+              My journey blends discipline from banking, analytical thinking
+              from data operations, and engineering mindset from full-stack
+              development — shaping how I build scalable and reliable systems.
+            </p>
+          </div>
         </div>
       </div>
     </section>

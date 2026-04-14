@@ -1,10 +1,47 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
-import logo from "../assets/logo/logo-nav.png";
+import { HiOutlineDocumentText } from "react-icons/hi";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+
+  // Handle scroll effect for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      const sections = [
+        "hero",
+        "about",
+        "skills",
+        "projects",
+        "experiences",
+        "education",
+        "courses",
+        "contact",
+      ];
+
+      let current = "hero";
+
+      sections.forEach((section) => {
+        const el = document.getElementById(section);
+        if (el) {
+          const top = el.offsetTop - 120;
+          if (window.scrollY >= top) {
+            current = section;
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    handleScroll(); // run once
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Close menu on Escape key
   useEffect(() => {
@@ -14,6 +51,23 @@ const Navbar = () => {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      const offset = 90;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+
+    setMenuOpen(false);
+  };
 
   const navLinks = [
     { name: "Home", to: "hero" },
@@ -27,110 +81,127 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="m-2 md:m-3 lg:m-4 rounded-full border border-secondary/50 lg:border-secondary transition-all duration-300 shadow-md">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-2 md:px-6 md:py-3">
-        {/* Logo & Mobile Menu Button Container */}
-        <div className="flex items-center gap-3 md:gap-4">
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle Menu"
-          >
-            {menuOpen ? (
-              <X size={26} className="text-text-accent" />
-            ) : (
-              <Menu size={26} className="text-text-accent" />
-            )}
-          </button>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-base-200/90 backdrop-blur-lg shadow-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="flex justify-between items-center max-w-7xl mx-auto px-4 py-4 md:px-6 lg:px-8">
+        {/* Logo */}
+        <button
+          onClick={() => scrollToSection("hero")}
+          className="cursor-pointer flex items-center gap-3 group"
+        >
+          <div className="w-10 h-10 md:w-11 md:h-11 rounded-full border border-primary/40 bg-primary/10 flex items-center justify-center shadow-sm transition-all duration-300 group-hover:scale-105 group-hover:border-primary">
+            <span className="text-base font-bold text-primary tracking-wide">
+              SI
+            </span>
+          </div>
 
-          {/* Logo */}
-          <Link
-            to="hero"
-            smooth={true}
-            duration={500}
-            className="cursor-pointer flex items-center"
-          >
-            <img
-              className="hidden lg:block w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full border border-secondary p-0.5"
-              src={logo}
-              alt="Logo"
-            />
-          </Link>
-        </div>
+          <span className="hidden md:block text-base md:text-lg font-semibold text-base-content transition-colors duration-300 group-hover:text-primary">
+            Shafiqul Islam
+          </span>
+        </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden lg:flex items-center space-x-6">
+        <ul className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <li key={link.to}>
-              <Link
-                to={link.to}
-                smooth={true}
-                duration={500}
-                offset={-70}
-                spy={true}
-                activeClass="text-accent border-b-2 border-secondary"
-                className="cursor-pointer text-text-accent text-sm md:text-base font-medium hover:text-accent transition-colors duration-300"
+              <button
+                onClick={() => scrollToSection(link.to)}
+                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${
+                  activeSection === link.to
+                    ? "text-primary bg-primary/10"
+                    : "text-base-content/80 hover:text-primary hover:bg-primary/10"
+                }`}
               >
                 {link.name}
-              </Link>
+
+                {/* Active underline */}
+                {activeSection === link.to && (
+                  <span className="absolute left-1/2 -bottom-1 h-[2px] w-5 -translate-x-1/2 bg-primary rounded-full"></span>
+                )}
+              </button>
             </li>
           ))}
         </ul>
 
-        {/* Resume Button */}
-        <div className="hidden lg:block">
+        {/* Desktop Resume Button */}
+        <div className="hidden lg:flex items-center">
           <a
-            href="https://drive.google.com/file/d/1iIovRpNCZ2W4QpX-n0c8s1eSX4ZKGmWk/view"
+            href="https://drive.google.com/file/d/1YgSJndI2ELeeN-nMCWZNzOB-Z_InSEVN/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-accent text-text-accent rounded-full px-6 md:px-8 py-2 md:py-2.5 text-sm md:text-base hover:brightness-110 hover:shadow-lg transition-transform duration-300 hover:scale-105"
+            className="p-2.5 rounded-lg border border-primary/30 text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-110"
+            title="Resume"
           >
-            View Resume
+            <HiOutlineDocumentText size={20} />
           </a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="lg:hidden p-2 rounded-lg hover:bg-base-300 transition"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {menuOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-xs"
+          className="lg:hidden fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
           onClick={() => setMenuOpen(false)}
         />
       )}
 
       {/* Mobile Menu Panel */}
-      {menuOpen && (
-        <div className="lg:hidden fixed top-0 left-0 z-50 w-64 h-full bg-primary shadow-lg p-6 flex flex-col justify-between text-text-accent transition-transform duration-300">
-          {/* Top: Navigation links */}
-          <div className="flex flex-col space-y-6">
+      <div
+        className={`lg:hidden fixed top-0 right-0 z-50 w-72 h-full bg-base-200 shadow-2xl transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="flex flex-col h-full p-6">
+          {/* Close button */}
+          <div className="flex justify-end mb-8">
+            <button onClick={() => setMenuOpen(false)}>
+              <X size={24} />
+            </button>
+          </div>
+
+          {/* Navigation links */}
+          <div className="flex flex-col space-y-2 flex-grow">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.to}
-                to={link.to}
-                smooth={true}
-                duration={500}
-                offset={-70}
-                spy={true}
-                onClick={() => setMenuOpen(false)}
-                className="text-base md:text-lg font-medium hover:text-accent transition-colors duration-300"
+                onClick={() => scrollToSection(link.to)}
+                className={`px-4 py-3 rounded-lg text-base font-medium text-left transition ${
+                  activeSection === link.to
+                    ? "text-primary bg-primary/10"
+                    : "text-base-content/80 hover:text-primary hover:bg-primary/10"
+                }`}
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
           </div>
 
-          {/* Bottom: Resume button */}
+          {/* Resume button */}
           <a
-            href="https://drive.google.com/file/d/1iIovRpNCZ2W4QpX-n0c8s1eSX4ZKGmWk/view"
+            href="https://drive.google.com/file/d/1YgSJndI2ELeeN-nMCWZNzOB-Z_InSEVN/view"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-accent text-base-200 px-5 py-2 rounded-full font-medium shadow hover:bg-secondary/90 transition-colors duration-300 mt-6 text-center"
+            className="w-full px-6 py-3 bg-primary text-primary-content rounded-lg font-medium mt-6 text-center"
+            onClick={() => setMenuOpen(false)}
           >
             View Resume
           </a>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

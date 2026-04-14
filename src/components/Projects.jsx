@@ -1,193 +1,202 @@
-import { Zoom } from "react-awesome-reveal";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-
-// Assets
-import craftflowLogo from "../assets/screenshots/craftflow/craftflow-logo.png";
-import craftflowImage1 from "../assets/screenshots/craftflow/image1.png";
-import craftflowImage2 from "../assets/screenshots/craftflow/image2.png";
-import craftflowImage3 from "../assets/screenshots/craftflow/image3.png";
-import craftflowImage4 from "../assets/screenshots/craftflow/image4.png";
-
-import educareLogo from "../assets/screenshots/educare/educare-logo.png";
-import educareImage1 from "../assets/screenshots/educare/image1.png";
-import educareImage2 from "../assets/screenshots/educare/image2.png";
-import educareImage3 from "../assets/screenshots/educare/image3.png";
-import educareImage4 from "../assets/screenshots/educare/image4.png";
-
-import cooksyLogo from "../assets/screenshots/cooksy/cooksy-logo.png";
-import cooksyImage1 from "../assets/screenshots/cooksy/image1.png";
-import cooksyImage2 from "../assets/screenshots/cooksy/image2.png";
-import cooksyImage3 from "../assets/screenshots/cooksy/image3.png";
+import { useState, useEffect } from "react";
+import { FaExternalLinkAlt, FaGithub, FaCode } from "react-icons/fa";
+import craftLogo from "../assets/screenshots/craftflow/craftflow-logo.png";
+import eduCareLogo from "../assets/screenshots/educare/educare-logo.png";
+import cookSyLogo from "../assets/screenshots/cooksy/cooksy-logo.png";
 
 const projects = [
   {
     name: "CraftFlow",
     tag: "Employee Management System",
-    logo: craftflowLogo,
     description:
-      "A full-stack system to manage tasks, payroll, and attendance - with dedicated dashboards for Admin, HR, and Employees.",
-    features: [
-      "Role-based dashboards",
-      "Task management with full CRUD operations",
-      "Integrated payroll with Stripe payments",
+      "Scalable employee management system with RBAC, payroll automation, and analytics.",
+    highlights: [
+      "RBAC (Admin, HR, Employee)",
+      "Stripe Payroll Integration",
+      "REST API Dashboard",
     ],
+    tech: ["React", "Node.js", "MongoDB", "JWT", "Stripe"],
     live: "https://craft-flow.netlify.app/",
     clientRepo: "https://github.com/md-shafiqul-islam/craftflow-client",
     serverRepo: "https://github.com/md-shafiqul-islam/craftflow-server",
-    images: [
-      craftflowImage1,
-      craftflowImage2,
-      craftflowImage3,
-      craftflowImage4,
-    ],
+    gradient: "from-blue-500/20 to-purple-500/20",
+    logo: craftLogo,
   },
   {
     name: "EduCare",
-    tag: "Educational Service Platform",
-    logo: educareLogo,
+    tag: "Educational Platform",
     description:
-      "A role-based learning platform that connects educators and learners with booking, dashboards, and real-time controls.",
-    features: [
-      "Service booking & complete CRUD workflow",
-      "Google OAuth & route protection",
-      "Light/dark theme and fully responsive layout",
-    ],
+      "Role-based learning platform with booking system and protected dashboards.",
+    highlights: ["Authentication System", "Service Booking Flow", "REST APIs"],
+    tech: ["React", "Firebase", "Node.js", "MongoDB"],
     live: "https://educare-9e09b.web.app",
     clientRepo: "https://github.com/md-shafiqul-islam/educare-client",
     serverRepo: "https://github.com/md-shafiqul-islam/educare-server",
-    images: [educareImage1, educareImage2, educareImage3, educareImage4],
+    gradient: "from-green-500/20 to-teal-500/20",
+    logo: eduCareLogo,
   },
   {
     name: "CookSy",
-    tag: "Recipe Sharing App",
-    logo: cooksyLogo,
+    tag: "Recipe Platform",
     description:
-      "A clean, interactive recipe app where users can share, filter, and save their favorite dishes with personalized authentication.",
-    features: [
-      "Add, edit, and delete recipes easily",
-      "Filter recipes by cuisine or category",
-      "Firebase authentication with JWT integration",
+      "Interactive recipe-sharing platform with authentication and CRUD features.",
+    highlights: [
+      "Full CRUD System",
+      "User Interaction (Likes/Search)",
+      "Firebase Auth",
     ],
+    tech: ["React", "Firebase", "Node.js", "MongoDB"],
     live: "https://cooksy.netlify.app/",
     clientRepo: "https://github.com/md-shafiqul-islam/cooksy-client",
     serverRepo: "https://github.com/md-shafiqul-islam/cooksy-server",
-    images: [cooksyImage1, cooksyImage2, cooksyImage3],
+    gradient: "from-orange-500/20 to-red-500/20",
+    logo: cookSyLogo,
   },
 ];
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 },
+    );
+
+    const element = document.getElementById("projects");
+    if (element) observer.observe(element);
+
+    return () => {
+      if (element) observer.unobserve(element);
+    };
+  }, []);
+
   return (
-    <section
-      id="projects"
-      className="py-20 px-6 md:py-24 md:px-10 lg:px-16 text-text-accent"
-    >
+    <section id="projects" className="py-20 px-4 md:px-6 lg:px-8 bg-base-200">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-wide">
-            Featured{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-secondary">
-              Projects
-            </span>
+        <div
+          className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-4">
+            Projects <span className="text-primary">I Built</span>
           </h2>
-          <p className="mt-4 text-base md:text-lg lg:text-xl text-text-accent/80 leading-snug max-w-2xl mx-auto">
-            Real-world projects built with performance, usability, and modern
-            design in mind.
+
+          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+
+          <p className="text-lg md:text-xl text-base-content/70 max-w-2xl mx-auto">
+            Real-world full-stack systems focused on scalability,
+            authentication, and backend architecture
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {projects.map((project) => (
-            <Zoom key={project.name} triggerOnce>
-              <div className="group bg-base-300/40 border border-base-300/40 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col backdrop-blur-sm">
-                {/* Image Slider */}
-                <div className="relative w-full h-56 overflow-hidden">
-                  <Swiper
-                    modules={[Pagination, Autoplay]}
-                    pagination={{ clickable: true }}
-                    autoplay={{ delay: 4000 }}
-                    loop
-                    className="w-full h-full"
-                  >
-                    {project.images.map((img, i) => (
-                      <SwiperSlide key={i}>
-                        <img
-                          src={img}
-                          alt={`${project.name} screenshot ${i + 1}`}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <div
+              key={project.name}
+              className={`group bg-base-300 border border-base-content/10 rounded-2xl overflow-hidden hover:border-primary/50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                transitionDelay: `${index * 150}ms`,
+              }}
+            >
+              {/* Top */}
+              <div
+                className={`h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+              >
+                <div className="w-20 h-20 bg-base-200 rounded-xl flex items-center justify-center shadow-md">
+                  <img
+                    src={project.logo}
+                    alt={project.name}
+                    className="w-12 h-12 object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="p-6 space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold">{project.name}</h3>
+                  <p className="text-sm text-primary">{project.tag}</p>
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 p-6 space-y-3">
-                  {/* Logo & Title */}
-                  <div className="flex items-center gap-3">
-                    <img src={project.logo} alt="logo" className="w-8 h-8" />
-                    <div>
-                      <h3 className="text-base md:text-lg lg:text-xl font-bold text-accent brightness-150">
-                        {project.name}
-                      </h3>
-                      <p className="text-sm text-accent">{project.tag}</p>
+                <p className="text-sm text-base-content/70">
+                  {project.description}
+                </p>
+
+                {/* Highlights */}
+                <div className="space-y-1">
+                  {project.highlights.map((item) => (
+                    <div
+                      key={item}
+                      className="text-xs flex items-center gap-2 text-base-content/70"
+                    >
+                      <span className="w-1.5 h-1.5 bg-primary rounded-full"></span>
+                      {item}
                     </div>
-                  </div>
-
-                  {/* Short Description */}
-                  <p className="text-sm text-text-accent/80 leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Features List */}
-                  <ul className="list-disc list-inside text-sm text-text-accent/80 space-y-1 mt-2">
-                    {project.features.map((feature, i) => (
-                      <li key={i} className="leading-snug">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                  ))}
                 </div>
 
-                {/* Buttons */}
-                <div className="flex items-center justify-between px-6 pb-5">
+                {/* Tech */}
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 text-xs bg-primary/10 text-primary rounded-md"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-2 pt-3">
                   <a
                     href={project.live}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-accent text-base-100 px-4 py-2 rounded-full font-semibold text-sm hover:bg-accent/80 transition-colors"
+                    className="flex-1 flex items-center justify-center gap-2 bg-primary text-primary-content px-3 py-2 rounded-lg text-sm"
                   >
-                    Live <FaExternalLinkAlt />
+                    <FaExternalLinkAlt /> Live
                   </a>
-                  <div className="flex gap-3">
+
+                  <a
+                    href={project.clientRepo}
+                    target="_blank"
+                    className="p-2 border rounded-lg"
+                  >
+                    <FaGithub />
+                  </a>
+
+                  {project.serverRepo && (
                     <a
-                      href={project.clientRepo}
+                      href={project.serverRepo}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 border border-accent/50 text-text-accent px-3 py-2 rounded-full font-semibold text-sm hover:bg-accent hover:text-primary transition-colors"
+                      className="p-2 border rounded-lg"
                     >
-                      <FaGithub />
+                      <FaCode />
                     </a>
-                    {project.serverRepo && (
-                      <a
-                        href={project.serverRepo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 border border-accent/50 text-text-accent px-3 py-2 rounded-full font-semibold text-sm hover:bg-accent hover:text-primary transition-colors"
-                      >
-                        <FaGithub />
-                      </a>
-                    )}
-                  </div>
+                  )}
                 </div>
               </div>
-            </Zoom>
+            </div>
           ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <a
+            href="https://github.com/md-shafiqul-islam"
+            target="_blank"
+            className="inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-primary-content transition"
+          >
+            <FaGithub /> View More
+          </a>
         </div>
       </div>
     </section>

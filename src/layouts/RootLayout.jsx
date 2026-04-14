@@ -1,4 +1,4 @@
-import { useScroll, motion as Motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import AboutMe from "../components/AboutMe";
 import Contact from "../components/Contact";
 import Education from "../components/Education";
@@ -7,32 +7,42 @@ import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
 import Projects from "../components/Projects";
 import Skills from "../components/Skills";
-import { useEffect } from "react";
-import Aos from "aos";
 import Courses from "../components/Courses";
 import Experiences from "../components/Experiences";
 
 const RootLayout = () => {
-  const { scrollYProgress } = useScroll();
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    Aos.init({ duration: 1000, once: true });
-    Aos.refresh();
+    const handleScroll = () => {
+      const totalHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (window.scrollY / totalHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
-      <Motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-accent z-[9999]"
-        style={{ scaleX: scrollYProgress }}
-      />
+      {/* Scroll Progress Bar */}
+      <div className="fixed top-0 left-0 right-0 h-1 bg-base-300 z-[9999]">
+        <div
+          className="h-full bg-primary transition-all duration-100 ease-out"
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
 
-      <div className="flex flex-col min-h-screen">
-        <header className="sticky top-0 z-50 bg-primary/95">
+      <div className="flex flex-col min-h-screen bg-base-200">
+        {/* Header with Navbar */}
+        <header>
           <Navbar />
         </header>
 
-        <main className="flex-1 bg-primary/40">
+        {/* Main Content */}
+        <main className="flex-1">
           <Hero />
           <AboutMe />
           <Skills />
@@ -43,9 +53,8 @@ const RootLayout = () => {
           <Contact />
         </main>
 
-        <footer className="bg-primary/95">
-          <Footer />
-        </footer>
+        {/* Footer */}
+        <Footer />
       </div>
     </>
   );

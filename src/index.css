@@ -8,18 +8,14 @@
   name: "dark";
   default: true;
 
-  /* Dark, natural, and modern theme */
-  --color-primary: #1a3636; /* Highlight / buttons / active links */
-  --color-secondary: #40534c; /* Soft accent for hover states or text */
-  --color-accent: #677d6a; /* Borders, subtle UI details */
-  --text-accent: #d6bd98; /* Accent text color */
+  /* Modern dark portfolio theme */
+  --color-primary: #3b82f6; /* Vibrant blue (action/CTA) */
+  --color-secondary: #8b5cf6; /* Purple accent */
+  --color-accent: #10b981; /* Green for success states */
 
-  --color-base-200: #1a3636; /* Main background */
-  --color-base-300: #40534c; /* Slightly lighter background layer */
+  --color-base-200: #0f172a; /* Deep slate background */
+  --color-base-300: #1e293b; /* Slightly lighter layer */
 
-  /* --- Fix visibility --- */
-  --color-base-content: #d6bd98; /* Main readable text */
-  --color-primary-content: #d6bd98; /* Text inside primary buttons */
-  --color-secondary-content: #d6bd98; /* Text inside secondary buttons */
-  --color-accent-content: #1a3636; /* Text inside accent buttons */
+  --color-base-content: #e2e8f0; /* High contrast white-ish text */
+  --text-accent: #60a5fa; /* Bright blue for links/highlights */
 }
