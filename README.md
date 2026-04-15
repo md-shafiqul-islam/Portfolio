@@ -1,48 +1,78 @@
-# Md. Shafiqul Islam – Portfolio
+## 👨‍💻 About Me
 
-Welcome to my portfolio repository! This is the source code for my personal portfolio website showcasing my web development projects, skills, and experience.
+I’m **Shafiq**, a passionate Web Developer focused on building modern, scalable, and user-friendly web applications.
 
----
+I enjoy turning ideas into real-world products using clean UI, solid architecture, and performance-focused development.
 
-## About Me
+### 💡 Core Stack:
+- React ecosystem (Frontend development)
+- Node.js & Express (Backend APIs)
+- MongoDB (Database)
+- Tailwind CSS (UI styling)
 
-I’m Shafiq, a passionate Web Developer focused on building clean, functional, and user-friendly web applications using modern technologies. I specialize in React, Tailwind CSS, Node.js, and MongoDB. This portfolio highlights my real-world projects and development journey.
-
----
-
-## Portfolio Highlights
-
-- **CraftFlow** — Role-based employee management system with task tracking and payroll
-- **EduCare** — Service sharing platform for booking educational services
-- **CookSy** — Recipe sharing and management application
-
-Explore these projects and more in the portfolio live at: [https://shafiqul-islam.netlify.app/](https://shafiqul-islam.netlify.app/)
+This portfolio highlights my development journey and real-world project experience.
 
 ---
 
-## Tech Stack
+## 🌟 Featured Projects
 
-- **Frontend:** React, Tailwind CSS, DaisyUI  
-- **Tools:** Vite, Git, GitHub, Framer Motion
+### 🚀 CraftFlow
+Role-based employee management system with task tracking, payroll system, and admin control.
+
+### 🎓 EduCare
+Service-sharing platform for booking and managing educational services.
+
+### 🍳 CookSy
+Recipe sharing and discovery platform for food lovers.
+
+👉 Live Portfolio:  
+https://shafiqul-islam.netlify.app/
 
 ---
 
-## Features
+## 🧰 Tech Stack
 
-- Fully responsive, mobile-friendly design  
-- Clean codebase with organized folder structure  
-- Smooth animations and interactive UI  
-- Project showcases with screenshots and live demos
+### Frontend
+- React
+- Tailwind CSS
+- DaisyUI
+
+### Tools & Workflow
+- Vite
+- Git & GitHub
+- Framer Motion
+
+---
+
+## ✨ Key Features
+
+- 📱 Fully responsive design (mobile-first approach)
+- 🎨 Clean, modern UI with smooth animations
+- ⚡ Fast and optimized performance
+- 🧱 Modular and maintainable code structure
+- 📂 Project-based showcase with live demos
 
 ---
 
 ## Getting Started
 
-To run this portfolio locally:
+### 1️⃣ Clone the repository
+
+```bash
 git clone https://github.com/md-shafiqul-islam/portfolio.git
-cd portfolio
+```
+
+### 2️⃣ Install dependencies
+
+```bash
 npm install
+```
+
+### 3️⃣ Run development server
+
+```bash
 npm run dev
+```
 
 ---
 
