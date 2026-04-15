@@ -1,3 +1,10 @@
+# 🚀 Md. Shafiqul Islam – Developer Portfolio
+
+Welcome to my personal portfolio repository!  
+This project showcases my web development skills, projects, and experience as a Full Stack Web Developer.
+
+---
+
 ## 👨‍💻 About Me
 
 I’m **Shafiq**, a passionate Web Developer focused on building modern, scalable, and user-friendly web applications.
